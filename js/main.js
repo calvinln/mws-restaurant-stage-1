@@ -162,6 +162,20 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   addMarkersToMap();
 };
 
+const altImgDescription = [
+  'image of diner',
+  'image of pizza',
+  'image of korean BBQ area',
+  'nighttime image of diner',
+  'image of robertas pizzaria',
+  'image of american BBQ',
+  'image of burger joint',
+  'image of restaurant',
+  'image of ramen bar',
+  'image of chic restaurant'
+];
+let index = 0;
+
 /**
  * Create restaurant HTML.
  */
@@ -171,6 +185,8 @@ createRestaurantHTML = restaurant => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = altImgDescription[index];
+  index += 1;
   li.append(image);
 
   const name = document.createElement('h1');
