@@ -1,3 +1,10 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(function(error) {
+    console.log(error);
+  });
+  console.log('Service worker: registered');
+}
+
 let restaurants, neighborhoods, cuisines;
 var newMap;
 var markers = [];
@@ -176,7 +183,7 @@ createRestaurantHTML = restaurant => {
   }`;
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 
